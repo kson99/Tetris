@@ -46,10 +46,13 @@ const gridCheck = () => {
 
     // remove rows without a 0 in its cells
     if (rowFilled) {
+      let sound = new Audio("./sound/clear.mp3");
+
       game.grid.splice(i, 1);
       game.grid.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
       game.score += SCORE;
+      sound.play();
     }
   }
 };

@@ -70,10 +70,13 @@ class Game {
 
         //   game over
         if (this.fallingPiece.y === 0) {
+          let sound = new Audio("../sound/game-over.mp3");
+
           this.score = 0;
           this.isPlaying = false;
           document.querySelector(".gameOver").style.display = "flex";
-          // alert("Game Over");
+          sound.play();
+
           // clear grid
           this.grid = this.gameGrid();
         }
