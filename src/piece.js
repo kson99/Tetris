@@ -10,7 +10,6 @@ class Piece {
     const createImage = (src) => {
       const image = new Image();
       image.src = src;
-      image.onload = () => {};
 
       return image;
     };
