@@ -1,4 +1,8 @@
 const canvas = document.querySelector("canvas");
+const start = document.querySelector("#start");
+const newGame = document.querySelector(".newGame");
+const gameOverBtn = document.querySelector(".gameOver button");
+
 const ctx = canvas.getContext("2d");
 ctx.scale(SIZE, SIZE);
 let score = 0;
@@ -7,6 +11,7 @@ let score = 0;
 let game = new Game(ctx);
 
 setInterval(() => {
+  handleButtons();
   gameState();
 }, 1000);
 
@@ -47,6 +52,29 @@ const gridCheck = () => {
       game.score += SCORE;
     }
   }
+};
+
+const handleButtons = () => {
+  start.addEventListener("click", () => {
+    game.isPlaying = !game.isPlaying;
+  });
+
+  if (game.isPlaying) {
+    newGame.style.display = "none";
+    start.innerHTML = "PAUSE";
+    start.style.backgroundColor = "red";
+    start.style.color = "white";
+  } else {
+    newGame.style.display = "flex";
+    start.innerHTML = "START";
+    start.style.backgroundColor = "white";
+    start.style.color = "black";
+  }
+
+  gameOverBtn.addEventListener("click", () => {
+    game.isPlaying = false;
+    document.querySelector(".gameOver").style.display = "none";
+  });
 };
 
 // on keypress down

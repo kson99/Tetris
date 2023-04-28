@@ -4,6 +4,7 @@ class Game {
     this.grid = this.gameGrid();
     this.fallingPiece = null;
     this.score = 0;
+    this.isPlaying = false;
   }
 
   //Empty game grid by filling all cells with 0
@@ -44,40 +45,46 @@ class Game {
 
   // piece falling function
   falling() {
-    // let this.fallingPiece = this.fallingPiece;
-    if (this.fallingPiece === null) {
-      this.drawGrid();
-      return;
-    } else if (!this.collision(this.fallingPiece.x, this.fallingPiece.y + 1)) {
-      this.fallingPiece.y += 1;
-    } else {
-      let piece = this.fallingPiece.piece;
-      for (let i = 0; i < piece.length; i++) {
-        for (let j = 0; j < piece[i].length; j++) {
-          // get position on grid
-          let k = this.fallingPiece.x + j;
-          let l = this.fallingPiece.y + i;
-          if (k >= 0 && k < COLS && l < ROWS && piece[i][j] > 0) {
-            this.grid[l][k] = piece[i][j];
-            // }
+    if (this.isPlaying) {
+      // let this.fallingPiece = this.fallingPiece;
+      if (this.fallingPiece === null) {
+        this.drawGrid();
+        return;
+      } else if (
+        !this.collision(this.fallingPiece.x, this.fallingPiece.y + 1)
+      ) {
+        this.fallingPiece.y += 1;
+      } else {
+        const piece = this.fallingPiece.piece;
+        for (let i = 0; i < piece.length; i++) {
+          for (let j = 0; j < piece[i].length; j++) {
+            // get position on grid
+            let k = this.fallingPiece.x + j;
+            let l = this.fallingPiece.y + i;
+            if (k >= 0 && k < COLS && l < ROWS && piece[i][j] > 0) {
+              this.grid[l][k] = piece[i][j];
+              // }
+            }
           }
         }
+
+        //   game over
+        if (this.fallingPiece.y === 0) {
+          this.score = 0;
+          this.isPlaying = false;
+          document.querySelector(".gameOver").style.display = "flex";
+          // alert("Game Over");
+          // clear grid
+          this.grid = this.gameGrid();
+        }
+
+        this.fallingPiece = null;
       }
 
-      //   game over
-      if (this.fallingPiece.y === 0) {
-        this.score = 0;
-        alert("Game Over");
-        // clear grid
-        this.grid = this.gameGrid();
-      }
-
-      this.fallingPiece = null;
+      // set score Display to current score
+      document.querySelector("#score").innerHTML = this.score;
+      this.drawGrid();
     }
-
-    // set score Display to current score
-    document.querySelector("#score").innerHTML = this.score;
-    this.drawGrid();
   }
 
   // collision detection
@@ -86,7 +93,7 @@ class Game {
 
     for (let i = 0; i < piece.length; i++) {
       for (let j = 0; j < piece.length; j++) {
-        if (piece[i][j] > 1) {
+        if (piece[i][j] > 0) {
           // get position on grid
           let k = x + j;
           let l = y + i;
@@ -117,7 +124,7 @@ class Game {
       if (!this.collision(piece.x - 1, piece.y)) {
         piece.x -= 1;
       }
-      this.drawGrid();
+      // this.drawGrid();
     } else if (direction === "right") {
       if (!this.collision(piece.x + 1, piece.y)) {
         piece.x += 1;

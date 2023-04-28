@@ -4,31 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" type="image/png" href="./images/logo.png" />
     <title>Tetris</title>
   </head>
-  <style>
-    body {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: black;
-      overflow: hidden;
-    }
-
-    canvas {
-      background-color: white;
-    }
-
-    h2 {
-      color: white;
-    }
-  </style>
   <body>
     <h2>Score: <span id="score">0</span></h2>
     <canvas id="canvas" width="300" height="600"></canvas>
+    <div class="buttons">
+      <button id="start">START</button>
+      <!-- <button id="end">End</button> -->
+    </div>
+    <div class="gameOver">
+      <div>
+        <h1>GAME OVER</h1>
+        <button>OK</button>
+      </div>
+    </div>
+
+    <div class="newGame">
+      <h1>PRESS START</h1>
+    </div>
 
     <script src="./src/constants.js"></script>
     <script src="./src/piece.js"></script>
