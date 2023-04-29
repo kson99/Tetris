@@ -17,7 +17,7 @@ let game = new Game(ctx);
 setInterval(() => {
   handleButtons();
   gameState();
-}, 1000);
+}, 500);
 
 const gameState = () => {
   gridCheck();
