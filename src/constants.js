@@ -52,3 +52,5 @@ const IMAGES = [
   "../images/T.png",
   "../images/Z.png",
 ];
+
+export { ROWS, COLS, SCORE, SIZE, SHAPES, IMAGES };

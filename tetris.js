@@ -1,3 +1,7 @@
+import { SCORE, SHAPES, SIZE } from "./src/constants.js";
+import Game from "./src/game.js";
+import Piece from "./src/piece.js";
+
 const canvas = document.querySelector("canvas");
 const start = document.querySelector("#start");
 const newGame = document.querySelector(".newGame");
@@ -27,7 +31,6 @@ const gameState = () => {
 
     // drawing the piece before falling
     piece.drawPiece();
-    // game.falling();
   } else {
     game.falling();
   }

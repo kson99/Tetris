@@ -1,4 +1,6 @@
-class Piece {
+import { COLS, IMAGES } from "./constants.js";
+
+export default class Piece {
   constructor({ shape, ctx }) {
     this.ctx = ctx;
     this.piece = shape;

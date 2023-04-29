@@ -1,4 +1,6 @@
-class Game {
+import { COLS, IMAGES, ROWS } from "./constants.js";
+
+export default class Game {
   constructor(ctx) {
     this.ctx = ctx;
     this.grid = this.gameGrid();
