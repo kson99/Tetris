@@ -22,7 +22,7 @@ canvas {
 }
 
 h2 {
-    font-family: "Emulogic", sans-serif;
+    font-family: "Emulogic", sans-serif !important;
     color: gold;
     margin-bottom: 20px;
     font-size: 16px;
