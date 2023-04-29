@@ -81,26 +81,46 @@ const handleButtons = () => {
 };
 
 // on keypress down
-addEventListener("keydown", ({ key }) => {
-  switch (key) {
-    case "w":
+addEventListener("keydown", ({ keyCode }) => {
+  switch (keyCode) {
+    // up w
+    case 87:
       game.rotate();
       break;
 
-    // left
-    case "a":
+    // up arrow
+    case 38:
+      game.rotate();
+      break;
+
+    // left a
+    case 65:
       game.shift("left");
       break;
 
-    // down
-    case "s":
+    // left arrow
+    case 37:
+      game.shift("left");
+      break;
+
+    // down s
+    case 83:
       game.falling();
       break;
 
-    // right
-    case "d":
+    // down arrow
+    case 40:
+      game.falling();
+      break;
+
+    // right d
+    case 68:
       game.shift("right");
-      // lastKey = "d";
+      break;
+
+    // right arrow
+    case 39:
+      game.shift("right");
       break;
   }
 });
