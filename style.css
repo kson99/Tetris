@@ -23,7 +23,7 @@ canvas {
 }
 
 h2 {
-    font-family: 'ArcadeClassic', "Emulogic", sans-serif !important;
+    font-family: 'ArcadeClassic', "Emulogic", sans-serif;
     color: gold;
     margin-bottom: 20px;
     font-size: 30px;
@@ -33,9 +33,9 @@ h2 {
     margin-top: 25px;
 }
 
-button {
+.btn {
     padding: 10px 20px;
-    appearance: none;
+    /* appearance: none; */
     border: none;
     border-radius: 5px;
     color: black;
@@ -44,9 +44,9 @@ button {
     outline: none;
 }
 
-button:hover {
-    background-color: cornflowerblue;
-    color: white;
+.btn:hover {
+    background-color: cornflowerblue !important;
+    color: white !important;
     transform: scale(1.15);
 }
 
