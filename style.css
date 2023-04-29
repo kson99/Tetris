@@ -1,3 +1,4 @@
+@import url(https://fonts.cdnfonts.com/css/arcade-classic);
 @import url(//db.onlinewebfonts.com/c/b10849c899982654fae3f01d02269043?family=Emulogic);
 
 * {
@@ -22,10 +23,10 @@ canvas {
 }
 
 h2 {
-    font-family: "Emulogic", sans-serif !important;
+    font-family: 'ArcadeClassic', "Emulogic", sans-serif !important;
     color: gold;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 .buttons {
